@@ -16,7 +16,7 @@ async function _fetch() {
 async function Home() {
 	const { data } = await _fetch();
 	return (
-		<main className={styles.main}>
+		<main className="container mx-auto h-screen flex justify-center align-center">
 			<Users users={data} />
 		</main>
 	);
