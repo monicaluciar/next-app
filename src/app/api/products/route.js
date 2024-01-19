@@ -1,8 +1,18 @@
 import { NextResponse } from "next/server";
+import { prisma } from "../../../libs/prisma";
 
-export function GET() {
-  return NextResponse.json({
-    id: 1,
-    name: "Telefono",
+export async function GET() {
+  const products = await prisma.product.findMany();
+  return NextResponse.json(products);
+}
+export async function POST(request) {
+  const body = await request.json();
+  await prisma.product.create({
+    data: {
+      name: body.name,
+      description: body.description,
+      price: body.price,
+    },
   });
+  return NextResponse.json({ message: "Product created" });
 }
