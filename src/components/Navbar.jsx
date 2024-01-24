@@ -10,6 +10,9 @@ function Navbar() {
 				<li>
 					<Link href='/categories'>Categories</Link>
 				</li>
+				<li>
+					<Link href='/new'>Add new product</Link>
+				</li>
 			</ul>
 		</nav>
 	);
